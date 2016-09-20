@@ -1,0 +1,116 @@
+/**
+ *
+ * User: kechols
+ * Date: 12/2/15
+ * Time: 12:00 PM
+ * Styling for the clinical decision support configuratin screen or configureClinicalDecisionSupportWindow.vm
+ * 
+ */
+
+#configurableContents, .configurableContents, .ui-paging-info {
+    font-size: 89.0%;
+}
+
+
+.configurableContentsPointer {
+    cursor: pointer;
+}
+
+
+#configureClinicalDecisionSupportWindow {
+    margin: 5px;
+    padding: 5px;
+    font-size: 89.0%;
+    height: 100%;
+    cursor: default
+}
+
+
+
+.configureClinicalDecisionSupportWindowButtons {
+    display: inline-block;
+    cursor: pointer; white-space: nowrap;
+}
+
+
+.configureClinicalDecisionSupportWindowCancel, .configureClinicalDecisionSupportWindowConfigureVendors, .configureClinicalDecisionSupportWindowSave{
+    color: darkgreen;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+.configureClinicalDecisionSupportWindowButtonSpacing {
+    width: 10px;
+}
+
+
+.header-with-selection-indicators, .header-with-modality-display-manipulation-buttons {
+    margin: 0 auto;
+    font-size: 89.0%;
+}
+
+
+html, body {
+    margin: 5px;
+    padding: 5px;
+    font-size: 89.0%;
+}
+
+
+input[type=checkbox].css-checkbox {
+    display: none;
+}
+
+
+.selected-checkbox {
+    display: inline-block;
+    padding-left:15px;
+    height:15px;
+    background-image:url(/configureClinicalDecisionSupport/images/dark-check-green.png);
+    background-repeat: no-repeat;
+    background-position: 0 -15px;
+    background-size: cover;
+}
+
+
+.selection-counter-label {
+    font-size: 87.5%;
+}
+
+
+.ui-dominate-button {
+    padding-top: 2px;
+}
+
+
+.ui-dominate-button-disabled {
+    background-color: whitesmoke;
+    padding-right: 5px !important;
+}
+
+
+.ui-dominate-button-enabled {
+    background-color: lightgrey;
+    color: black !important;
+    padding-right: 5px !important;
+}
+
+
+.unselected-checkbox {
+    display: inline-block;
+    padding-left:15px;
+    height:15px;
+    background-image:url(/configureClinicalDecisionSupport/images/dark-check-green.png);
+    background-repeat: no-repeat;
+}
+
+
+.vendorSelectedCounter {
+    color: #169E01;
+}
+
+
+.vendorUnSelectedCounter {
+    color: DarkSlateGrey;
+}

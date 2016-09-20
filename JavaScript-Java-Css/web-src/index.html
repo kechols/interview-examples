@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Configure Clinical Decision Support</title>
+        <META HTTP-EQUIV="X-UA-Compatible" content="IE=Edge">
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" />
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+        <META HTTP-EQUIV="EXPIRES" CONTENT="0" />
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/jquery.jqGrid.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/grid.locale-en.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/configureClinicalDecisionSupportWindow.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/configureClinicalDecisionSupportWindowPlugin.js"></script>
+        <script type="text/javascript" src="/js/blockUi/jquery.blockUI.js"></script>
+        <script type="text/javascript" src="/configureClinicalDecisionSupport/js/jquery.form.min.js"></script>
+        <link rel="stylesheet" href="/configureClinicalDecisionSupport/css/jquery-ui.css" type="text/css">
+        <link rel="stylesheet" href="/configureClinicalDecisionSupport/css/ui.jqgrid.css" type="text/css">
+        <link rel="stylesheet" href="/configureClinicalDecisionSupport/css/jquery-ui-custom.css" type="text/css">
+        <link rel="stylesheet" href="/configureClinicalDecisionSupport/css/configureClinicalDecisionSupportWindow.css" type="text/css">
+    </head>
+    <body>
+        <form name="cdsConfigForm" id="cdsConfigForm" method="post" action="/persistCdsConfigChangedData.do">
+            <input type="hidden" id="cdsConfigGridData" name="cdsConfigGridData" value="$form.bean.cdsConfigGridData">
+            <input type="hidden" id="cdsConfigGridVendorColumns" name="cdsConfigGridVendorColumns" value="$form.bean.cdsConfigGridVendorColumns">
+            <input type="hidden" id="cdsConfigChangedData" name="cdsConfigChangedData">
+            <input type="hidden" id="modifiedPersistableCdsConfigData" name="modifiedPersistableCdsConfigData">
+            <input type="hidden" id="originalPersistableCdsConfigData" name="originalPersistableCdsConfigData">
+            <input type="hidden" id="vendorNameToVendorIdData" name="vendorNameToVendorIdData">
+            <di
+        </form>
+    </body>
+</html>
