@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Kevins.Examples.Common.Enums;
+using Kevins.Examples.Common.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Kevins.Examples.Database.Tests.Unit.Extensions
 {
@@ -6,22 +8,25 @@ namespace Kevins.Examples.Database.Tests.Unit.Extensions
     public class EnumExtensionsUnitTest
     {
 
-        // TODO Use another Enum class to test
-        /*
+        
         [TestMethod]
-        public void ShouldCovertEnumOpinionAsWords()
+        public void ShouldCovertEnumOpinionToWord()
         {
-            var opinion = new PeerReviewOpinion { Opinion = '1' };
-            Assert.AreEqual("Agree", opinion.OpinionEnum.AsWords());
+            Assert.AreEqual("Email", DeliveryMethod.Email.AsWords());
         }
 
 
         [TestMethod]
-        public void ShouldCovertEnumOpinionToChar()
+        public void ShouldCovertEnumOpinionToWords()
         {
-            var opinion = new PeerReviewOpinion { OpinionEnum = OpinionType.Agree };
-            Assert.AreEqual('1', opinion.Opinion);
+            Assert.AreEqual("Auto Appointment Confirmation", DeliveryQueueType.AutoAppointmentConfirmation.AsWords());
         }
-        */
+
+
+        [TestMethod]
+        public void ShouldCovertEnumOpinionToInt()
+        {
+            Assert.AreEqual(3, OpinionType.Disagree.AsInt());
+        }
     }
 }

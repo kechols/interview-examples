@@ -9,12 +9,11 @@ namespace Kevins.Examples.Common.Tests.Unit.Utils
     {
         [TestMethod]
         // [Ignore]
-        public void ShouldGetCorrectAssemblyDirectoryPath()
-        {
+        public void ShouldGetCorrectAssemblyDirectoryPath() { 
             // Note: This test is britle bcause the output changes based on where the project is setup
             // So for the above reason this test is ignored. However I, (kechols), feel that
             // that this test should exist since the property is heavly used.
-            Assert.AreEqual("C:\\Users\\KEchols\\Source\\Repos\\Messenger\\Common.Tests\\bin\\Debug", ProjectHelper.AssemblyDirectory);
+            Assert.AreEqual(@"C:\Users\Kevin\Source\Repos\interview-examples\CSharp\Common.Tests\bin\Debug", ProjectHelper.AssemblyDirectory);
         }
 
 
@@ -25,7 +24,7 @@ namespace Kevins.Examples.Common.Tests.Unit.Utils
             // Note: This test is britle bcause the output changes based on where the project is setup
             // So for the above reason this test is ignored. However I, (kechols), feel that
             // that this test should exist since the property is heavly used.
-            Assert.AreEqual("C:\\Users\\KEchols\\Source\\Repos\\Messenger", ProjectHelper.ProjectDirectory);
+            Assert.AreEqual(@"C:\Users", ProjectHelper.ProjectDirectory);
         }
 
 
