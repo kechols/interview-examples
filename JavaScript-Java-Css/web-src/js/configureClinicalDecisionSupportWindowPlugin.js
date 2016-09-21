@@ -3,7 +3,7 @@
  *
  *
  * This "configureClinicalDecisionSupportWindowPlugin" file is a javascript plugin. Being a plugin it is an
- * object and not a function bucket like most of the SRIS.js files. The "configureClinicalDecisionSupportWindowPlugin" is responsible
+ * object and not a function bucket like most of the previous *.js files. The "configureClinicalDecisionSupportWindowPlugin" is responsible
  * for the behavior of the configure clinical decision support window or index.html file
  *
  * Please name functions and variables descriptively and appropriately as this file was written to be living documentation.
