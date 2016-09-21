@@ -46,6 +46,7 @@
     <Compile Include="Unit\Helpers\ResourceFileHelper.cs" />
     <Compile Include="Unit\Helpers\UnitTestHelperUnitTest.cs" />
     <Compile Include="Unit\Helpers\UnitTestHelper.cs" />
+    <Compile Include="Unit\Utils\Patterns\RetryerTest.cs" />
     <Compile Include="Unit\Utils\UnitTestHelperUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
