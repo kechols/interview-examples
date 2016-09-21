@@ -1,9 +1,9 @@
 ﻿using System;
+using Kevins.Examples.Common.Utils.Patterns;
 using Kevins.Examples.Database.Common;
 using Kevins.Examples.Database.Extensions;
 using Kevins.Examples.Database.Tests.Integration.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Sunrise.Radiology.Messenger.Common.Utils.Patterns;
 using Sunrise.Radiology.Messenger.Database.Common;
 
 namespace Kevins.Examples.Database.Tests.Integration.Extensions

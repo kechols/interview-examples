@@ -1,4 +1,4 @@
-﻿namespace Sunrise.Radiology.Messenger.Common.Utils.Patterns
+﻿namespace Kevins.Examples.Common.Utils.Patterns
 {
     public interface IRetryable
     {

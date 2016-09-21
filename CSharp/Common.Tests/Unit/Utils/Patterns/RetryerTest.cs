@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
+using Kevins.Examples.Common.Utils.Patterns;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Sunrise.Radiology.Messenger.Common.Utils.Patterns;
 
 namespace Kevins.Examples.Common.Tests.Unit.Utils.Patterns
 {
