@@ -1,6 +1,6 @@
 ﻿using Kevins.Examples.Common.Interfaces;
 
-namespace Sunrise.Radiology.Messenger.Common.Utils
+namespace Kevins.Examples.Common.Utils
 {
     public abstract class AbstractResourceFileHandler : IResourceFile
     {        

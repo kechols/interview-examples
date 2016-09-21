@@ -7,7 +7,7 @@ using System.IO;
 using System.Resources;
 using log4net;
 
-namespace Sunrise.Radiology.Messenger.Common.Utils
+namespace Kevins.Examples.Common.Utils
 {
     public class ResourceFileObject
     {

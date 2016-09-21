@@ -52,8 +52,16 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator, Version=1.1.12.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PdfGenerator.1.1.12.0\lib\net20\NReco.PdfGenerator.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -72,7 +80,15 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interfaces\IResourceFile.cs" />
+    <Compile Include="Io\FieldTypes.cs" />
+    <Compile Include="Io\Pdf\Extensions\PdfExtentions.cs" />
+    <Compile Include="Io\Pdf\PdfFileObject.cs" />
+    <Compile Include="Io\Pdf\PdfResources.cs" />
+    <Compile Include="Io\RemoveFieldsWhenPrinitngResuklt.cs" />
+    <Compile Include="Io\Web\WebUrlStreamReader.cs" />
+    <Compile Include="Io\Web\WebUrlStreamReaderResources.cs" />
     <Compile Include="Utils\AbstractResourceFileHandler.cs" />
+    <Compile Include="Utils\Patterns\AbstractRetryable.cs" />
     <Compile Include="Utils\Patterns\IRetryable.cs" />
     <Compile Include="Utils\Patterns\Retryer.cs" />
     <Compile Include="Utils\ProcessStarter.cs" />
@@ -88,7 +104,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Io\Pdf\PdfResources.resx">
+      <DependentUpon>PdfResources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Io\Web\WebUrlStreamReaderResources.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
