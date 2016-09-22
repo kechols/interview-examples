@@ -4,8 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Configuration;
+using Kevins.Examples.Common.Utils.Strings;
 using log4net;
-using Sunrise.Radiology.Messenger.Common.Utils.Strings;
 
 namespace Kevins.Examples.Common.Extensions
 {

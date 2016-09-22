@@ -1,5 +1,3 @@
-using Sunrise.Radiology.Messenger.Database;
-
 namespace Kevins.Examples.Database
 {
     public class Department : BaseEntity<Department>

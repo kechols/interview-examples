@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Sunrise.Radiology.Messenger.Common.Utils.Strings
+namespace Kevins.Examples.Common.Utils.Strings
 {
     public abstract class AbstractStringsProvider<T>
     where T : AbstractStringsProvider<T>, new()

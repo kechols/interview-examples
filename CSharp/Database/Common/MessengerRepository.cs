@@ -4,7 +4,6 @@ using Kevins.Examples.Common.Enums;
 using Kevins.Examples.Common.Extensions;
 using log4net;
 using NHibernate;
-using Sunrise.Radiology.Messenger.Database.Common;
 
 namespace Kevins.Examples.Database.Common
 {

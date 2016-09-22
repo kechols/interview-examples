@@ -1,6 +1,4 @@
-﻿using Sunrise.Radiology.Messenger.Database;
-
-namespace Kevins.Examples.Database.Mapping
+﻿namespace Kevins.Examples.Database.Mapping
 {
     public class PrinterMap : BaseEntityMap<Printer>
     {

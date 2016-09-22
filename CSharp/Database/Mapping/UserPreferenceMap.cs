@@ -1,7 +1,4 @@
-﻿using Kevins.Examples.Database;
-using Kevins.Examples.Database.Mapping;
-
-namespace Sunrise.Radiology.Messenger.Database.Mapping
+﻿namespace Kevins.Examples.Database.Mapping
 {
     public class UserPreferenceMap : BaseEntityMap<UserPreference>
     {

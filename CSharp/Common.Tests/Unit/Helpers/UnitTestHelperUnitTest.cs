@@ -9,7 +9,7 @@ namespace Kevins.Examples.Common.Tests.Unit.Helpers
         // [Ignore]
         public void ShouldDoSomething()
         {
-            Assert.AreEqual(string.Empty, @"kevins_hello_world.html".GetEmbeddeResoueLocation(@"Sunrise.Radiology.Messenger.Message.Tests.Resources"));
+            Assert.AreEqual(string.Empty, @"kevins_hello_world.html".GetEmbeddeResoueLocation(@"Kevins.Examples.Message.Tests.Resources"));
         }
     }
 }

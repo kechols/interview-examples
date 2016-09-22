@@ -2,9 +2,8 @@
 using Kevins.Examples.Database.Common;
 using Kevins.Examples.Database.Tests.Integration.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Sunrise.Radiology.Messenger.Database.Common;
 
-namespace Sunrise.Radiology.Messenger.Database.Tests.Integration
+namespace Kevins.Examples.Database.Tests.Integration
 {
     [TestClass]
     public class PrinterHibernateTest : HibernateTestBase

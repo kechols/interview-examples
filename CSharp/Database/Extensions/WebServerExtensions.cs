@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Kevins.Examples.Database.Common;
-using Sunrise.Radiology.Messenger.Database;
-using Sunrise.Radiology.Messenger.Database.Common;
 
 namespace Kevins.Examples.Database.Extensions
 {

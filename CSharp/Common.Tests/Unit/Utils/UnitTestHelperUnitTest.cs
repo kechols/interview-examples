@@ -1,6 +1,6 @@
 using Kevins.Examples.Common.Tests.Unit.Helpers;
+using Kevins.Examples.Common.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Sunrise.Radiology.Messenger.Common.Utils;
 
 namespace Kevins.Examples.Common.Tests.Unit.Utils
 {
@@ -32,7 +32,7 @@ namespace Kevins.Examples.Common.Tests.Unit.Utils
         // [Ignore]
         public void ShouldDoSomething()
         {
-            Assert.AreEqual(string.Empty, @"kevins_hello_world.html".GetEmbeddeResoueLocation(@"Sunrise.Radiology.Messenger.Message.Tests.Resources"));
+            Assert.AreEqual(string.Empty, @"kevins_hello_world.html".GetEmbeddeResoueLocation(@"Kevins.Examples.Message.Tests.Resources"));
         }
     }
 }

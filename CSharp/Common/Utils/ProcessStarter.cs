@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Sunrise.Radiology.Messenger.Common.Utils
+namespace Kevins.Examples.Common.Utils
 {
     public class ProcessStarter : IDisposable
     {

@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using Kevins.Examples.Database.Common;
 using NHibernate;
 using NHibernate.Criterion;
-using Sunrise.Radiology.Messenger.Database;
 
 namespace Kevins.Examples.Database.Tests.Integration.Common
 {

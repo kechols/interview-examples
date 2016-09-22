@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 
-namespace Sunrise.Radiology.Messenger.Common.Utils
+namespace Kevins.Examples.Common.Utils
 {
     public static class ProjectHelper
     {

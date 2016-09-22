@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Sunrise.Radiology.Messenger.Common.Utils.Strings
+namespace Kevins.Examples.Common.Utils.Strings
 {
     /// <summary>
     /// This class helps reduce string duplication in custom validation attribute parameters. For example, the attribute

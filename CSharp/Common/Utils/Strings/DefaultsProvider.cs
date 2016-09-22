@@ -1,4 +1,4 @@
-﻿namespace Sunrise.Radiology.Messenger.Common.Utils.Strings
+﻿namespace Kevins.Examples.Common.Utils.Strings
 {
     public class DefaultsProvider : AbstractStringsProvider<DefaultsProvider>
     {

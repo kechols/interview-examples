@@ -1,6 +1,4 @@
-﻿using Sunrise.Radiology.Messenger.Database;
-
-namespace Kevins.Examples.Database
+﻿namespace Kevins.Examples.Database
 {
     public class UserPreference : BaseEntity<UserPreference>
     {

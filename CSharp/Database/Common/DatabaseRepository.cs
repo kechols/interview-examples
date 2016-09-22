@@ -6,7 +6,7 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
 using NHibernate.Util;
-using Sunrise.Radiology.Messenger.Database.Common;
+
 
 namespace Kevins.Examples.Database.Common
 {

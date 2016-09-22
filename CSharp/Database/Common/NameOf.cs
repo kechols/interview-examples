@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Sunrise.Radiology.Messenger.Database.Common
+namespace Kevins.Examples.Database.Common
 {
     public class NameOf
     {

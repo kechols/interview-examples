@@ -1,6 +1,4 @@
-using Kevins.Examples.Database;
-
-namespace Sunrise.Radiology.Messenger.Database
+namespace Kevins.Examples.Database
 {
     public class Printer : BaseEntity<Printer>
     {
