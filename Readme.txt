@@ -5,3 +5,5 @@ The lack of comments in the C# code is because there are test for almost all the
 The few comments that are present are for algorithms, code / test which does not pass because the code requires a resource like a database required for the code /test to successfully execute.
 
 ** Note I developed the c# solutions with Visual Studio 2015
+
+** In addition to the code examples that I have checked into this github repository. I can also checkin in any other non proprietary code that I have. So those of you that have my contact information from my resume - if you have any questions or would like to see examples of something in particular please email or text me. If I have never done what you are interested in I will let you know right away. **
