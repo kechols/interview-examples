@@ -87,6 +87,7 @@
     <Compile Include="Io\RemoveFieldsWhenPrinitngResuklt.cs" />
     <Compile Include="Io\Web\WebUrlStreamReader.cs" />
     <Compile Include="Io\Web\WebUrlStreamReaderResources.cs" />
+    <Compile Include="Logs\KevinsRollingFileAppender.cs" />
     <Compile Include="Utils\AbstractResourceFileHandler.cs" />
     <Compile Include="Utils\Patterns\AbstractRetryable.cs" />
     <Compile Include="Utils\Patterns\IRetryable.cs" />
