@@ -9,7 +9,7 @@ using NReco.PdfGenerator;
 
 namespace Kevins.Examples.Common.Io.Pdf.Extensions
 {
-    public static class PdfExtentions
+    public static class PdfExtensions
     {
         private static readonly ILog Log =
             LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
