@@ -84,7 +84,7 @@
     <Compile Include="Io\Pdf\Extensions\PdfExtensions.cs" />
     <Compile Include="Io\Pdf\PdfFileObject.cs" />
     <Compile Include="Io\Pdf\PdfResources.cs" />
-    <Compile Include="Io\RemoveFieldsWhenPrinitngResuklt.cs" />
+    <Compile Include="Io\Web\Extensions\RemoveFieldsWhenPrinitngResuklt.cs" />
     <Compile Include="Io\Web\WebUrlStreamReader.cs" />
     <Compile Include="Io\Web\WebUrlStreamReaderResources.cs" />
     <Compile Include="Logs\KevinsRollingFileAppender.cs" />

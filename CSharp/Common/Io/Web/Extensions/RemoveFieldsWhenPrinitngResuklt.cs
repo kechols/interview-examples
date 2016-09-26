@@ -2,7 +2,7 @@
 using HtmlAgilityPack;
 using Kevins.Examples.Common.Extensions;
 
-namespace Kevins.Examples.Common.Io
+namespace Kevins.Examples.Common.Io.Web.Extensions
 {
     public static class RemoveFieldsWhenPrintingExtensions
     {

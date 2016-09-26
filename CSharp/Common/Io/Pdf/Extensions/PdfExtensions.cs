@@ -4,6 +4,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using Kevins.Examples.Common.Extensions;
 using Kevins.Examples.Common.Io.Web;
+using Kevins.Examples.Common.Io.Web.Extensions;
 using log4net;
 using NReco.PdfGenerator;
 

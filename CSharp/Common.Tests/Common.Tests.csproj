@@ -47,6 +47,7 @@
     <Compile Include="Unit\Helpers\UnitTestHelperUnitTest.cs" />
     <Compile Include="Unit\Helpers\UnitTestHelper.cs" />
     <Compile Include="Unit\Io\Pdf\Extensions\PdfExtensionsUnitTest.cs" />
+    <Compile Include="Unit\Io\Web\Extensions\RemoveFieldsWhenPrintingExtensionsUnitTest.cs" />
     <Compile Include="Unit\Utils\Patterns\RetryerTest.cs" />
     <Compile Include="Unit\Utils\UnitTestHelperUnitTest.cs" />
   </ItemGroup>
@@ -72,6 +73,20 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Io\Web\Extensions\RemoveFieldsWhenPrintingExtensionsUnitTest\removeFieldsMatchingTagUsingAttribute_ExpectedOutput.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Io\Web\Extensions\RemoveFieldsWhenPrintingExtensionsUnitTest\removeFieldsMatchingTagUsingAttribute_TestFile.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Io\Web\Extensions\RemoveFieldsWhenPrintingExtensionsUnitTest\removeFieldsMatchingTagUsingFieldEnum_ExpectedOutput.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Io\Web\Extensions\RemoveFieldsWhenPrintingExtensionsUnitTest\removeFieldsMatchingTagUsingFieldEnum_TestFile.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
