@@ -26,7 +26,7 @@ namespace Kevins.DSolutions.Algorithm.Extensions
                 {
                     if (string.IsNullOrEmpty(firstStringPair) ||
                         (firstOccurnceInPairIndexes[1] < patternIndexes[1])
-                        )
+                    )
                     {
                         firstStringPair = pattern;
                         firstOccurnceInPairIndexes = patternIndexes;
