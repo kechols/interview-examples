@@ -28,7 +28,7 @@ namespace Kevins.DSolutions.Algorithm.Tests.Unit.Extensions
 
 
         [TestMethod]
-        public void ShouldNotFindSearchStringIsEmpty()
+        public void ShouldNotFindIfSearchStringIsEmpty()
         {
             Assert.AreEqual(string.Empty, string.Empty.FindFirstStringPair(10));
         }
