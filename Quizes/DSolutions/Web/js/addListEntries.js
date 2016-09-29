@@ -28,6 +28,8 @@ function addNewEntry() {
         var isEveryThird = (($(".entryItem").length + 1) % 3) === 0;
         var styleClasses = "entryItem " + (isEveryThird ? "redEntryItem" : "blackEntryItem");
         $("#entryItems").append("<option class='" + styleClasses + "' value='" + newEntryValue + "'>" + newEntryValue + "</option>");
+    } else {
+        alert("Entry must have none blank characters.");
     }
 }
 
