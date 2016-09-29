@@ -25,7 +25,8 @@ $(function () {
 function addNewEntry() {
     var newEntryValue = $("#newEntry").val().trim();
     if (newEntryValue !== "") {
-        var styleClasses = "entryItem " + ($(".entryTem").length % 3 === 0 ? "redEntryItem" : "blackEntryItem");
+        var isEveryThird = (($(".entryItem").length + 1) % 3) === 0;
+        var styleClasses = "entryItem " + (isEveryThird ? "redEntryItem" : "blackEntryItem");
         $("#entryItems").append("<option class='" + styleClasses + "' value='" + newEntryValue + "'>" + newEntryValue + "</option>");
     }
 }
