@@ -1,0 +1,45 @@
+/**
+ *
+ * User: kechols
+ * Date: 9/28/16
+ * Time: 8:00 PM
+ * Styling for the addListItem.html screen
+ * 
+ */
+
+.addListItemPointer {
+    cursor: pointer;
+}
+
+.blackEntryItem {
+    color: black;
+}
+
+
+#entryItems, #newEntry {
+    min-width: 40px;
+}
+
+
+html, body {
+    margin: 5px;
+    padding: 5px;
+    font-size: 89.0%;
+}
+
+
+.leftMargin {
+    margin-left: 7px;
+}
+
+
+.newEntryLabel {
+    padding-right: 8px;
+}
+
+
+
+.redEntryItem {
+    color: red;
+}
+
