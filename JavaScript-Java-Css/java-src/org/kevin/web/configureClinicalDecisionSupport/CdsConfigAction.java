@@ -28,18 +28,18 @@ import java.util.*;
  * Time: 3:56:16 PM
  *
  *
- * Please name functions and variables descriptively and appropriately as this file was written to be living documentation.
+ * I name functions and variables descriptively and appropriately as this file was written to be living documentation.
  *  - Comments can be limited if the code says what it is doing -
  *  - Renaming variables and functions as there intention changes is a good thing. And it is well worth everyone's time.
  *
- *  Please keep the code tidy. There is no need to leave dead or commented out code around. If it is commented out after one or more checkins
+ *  I keep the code tidy. There is no need to leave dead or commented out code around. If it is commented out after one or more checkins
  *  then it is just noise that some else will have to read through. We are all smart people. We don't have to leave dead code around as
  *  examples of what we decided not to do (just like we don't leave artifacts in word documents)
  *
- *  Please keep functions that have the same scope in alphabetical order. It makes things easier to find as documented in the clean code
+ *  I keep functions that have the same scope in alphabetical order. It makes things easier to find as documented in the clean code
  *  book.
  *
- *  Please indent and use proper spacing just as you would in any document. As mentioned this file is living documentation and it should be
+ *  I indent and use proper spacing just as you would in any document. As mentioned this file is living documentation and it should be
  *  maintained as if it were a word document that is to be read by others.
  */
 public class CdsConfigAction extends BasicAction {
