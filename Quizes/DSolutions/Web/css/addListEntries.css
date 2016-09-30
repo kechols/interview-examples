@@ -16,6 +16,10 @@
 }
 
 
+.bottomMargin {
+    margin-bottom: 7px;
+}
+
 #entryItems, #newEntry {
     min-width: 40px;
 }
