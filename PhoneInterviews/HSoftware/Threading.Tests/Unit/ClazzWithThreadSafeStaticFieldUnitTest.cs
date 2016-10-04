@@ -33,13 +33,13 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
         [TestMethod]
         public void ShouldHaveSafeFieldIntializedCorrectlyInMultiThread()
         {
-            var evaluationOfMainThreadValue = IsSafeField(ClazzWithThreadSafeStaticField.GetStaticFieldValue(true));
+            var evaluationOfMainThreadValue = IsSafeField(ClazzWithThreadSafeStaticField.GetStaticFieldValue());
             Assert.IsTrue(evaluationOfMainThreadValue);
 
             var spawnedThreadValue = string.Empty;
             var newStaticFieldThread = new Thread(() =>
             {
-                spawnedThreadValue = ClazzWithThreadSafeStaticField.GetStaticFieldValue(true);
+                spawnedThreadValue = ClazzWithThreadSafeStaticField.GetStaticFieldValue();
             }
             );
             newStaticFieldThread.Start();

@@ -12,7 +12,7 @@ namespace Kevins.HSoftware.Threading
         public static string ThreadSafeStaticField = @"initialized thread safe static field";
 
 
-        public static string GetStaticFieldValue(bool useThreadSafeField)
+        public static string GetStaticFieldValue(bool useThreadSafeField = true)
         {
             return useThreadSafeField ? ThreadSafeStaticField : NonThreadSafeStaticField;
         }
