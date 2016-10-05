@@ -39,7 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Unit\ClazzProvidesThreadSafeMemberAccessUnitTest.cs" />
+    <Compile Include="Unit\ClazzProvidesLockingUsingMonitorMethodsUnitTest.cs" />
+    <Compile Include="Unit\ClazzProvidesThreadSafeMemberAccessUsingLockUnitTest.cs" />
     <Compile Include="Unit\ClazzWithThreadSafeStaticFieldUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -62,7 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClazzProvidesThreadSafeMemberAccess.cs" />
+    <Compile Include="ClazzProvidesLockingUsingMonitorMethods.cs" />
+    <Compile Include="ClazzProvidesThreadSafeMemberAccessUsingLock.cs" />
     <Compile Include="ClazzWithThreadSafeStaticField.cs" />
   </ItemGroup>
   <ItemGroup>

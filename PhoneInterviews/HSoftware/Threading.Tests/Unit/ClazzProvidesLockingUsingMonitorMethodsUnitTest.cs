@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Kevins.HSoftware.Threading.Tests.Unit
 {
     [TestClass]
-    public class ClazzProvidesThreadSafeMemberAccessUnitTest
+    public class ClazzProvidesLockingUsingMonitorMethodsUnitTest
     {
         [TestMethod]
-        public void ShouldHaveSafeMethodCallsInMultiThread()
+        public void ShouldHaveSafeMethodCallsUsingMonitorMethods()
         {
             var workerThreads = new List<Thread>();
             var numberFieldValue = 0;
@@ -16,7 +16,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
             int functionExecuteCount = 0;
 
             // Start field value at 0
-            ClazzProvidesThreadSafeMemberAccess.ModifyNumberField(0);
+            ClazzProvidesLockingUsingMonitorMethods.ModifyNumberField(0);
 
             for (var i = 1; i <= incrementFiveTimes; i++)
             {
@@ -27,10 +27,9 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
                     while (functionExecuteCount < incrementFiveTimes)
                     {
                         Thread.Yield();
-                        Thread.Sleep(10);
                     }
-                    ClazzProvidesThreadSafeMemberAccess.IncrementNumberField();
-                    numberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField();
+                    ClazzProvidesLockingUsingMonitorMethods.IncrementNumberField();
+                    numberFieldValue = ClazzProvidesLockingUsingMonitorMethods.GetNumberField();
                 });
                 workerThreads.Add(workerThread);
             }
@@ -52,7 +51,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
 
 
         [TestMethod]
-        public void ShouldNotHaveSafeMethodCallsInMultiThread()
+        public void ShouldNotHaveSafeMethodCallsWhenNotUsingMonitorMethods()
         {
             var workerThreads = new List<Thread>();
             var numberFieldValue = 0;
@@ -60,7 +59,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
             int functionExecuteCount = 0;
 
             // Start field value at 0
-            ClazzProvidesThreadSafeMemberAccess.ModifyNumberField(0, false);
+            ClazzProvidesLockingUsingMonitorMethods.ModifyNumberField(0, false);
 
             for (var i = 1; i <= incrementFiveTimes; i++)
             {
@@ -71,10 +70,9 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
                     while (functionExecuteCount < incrementFiveTimes)
                     {
                         Thread.Yield();
-                        Thread.Sleep(10);
                     }
-                    ClazzProvidesThreadSafeMemberAccess.IncrementNumberField(false);
-                    numberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField(false);
+                    ClazzProvidesLockingUsingMonitorMethods.IncrementNumberField(false);
+                    numberFieldValue = ClazzProvidesLockingUsingMonitorMethods.GetNumberField(false);
                 });
                 workerThreads.Add(workerThread);
             }

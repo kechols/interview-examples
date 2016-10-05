@@ -43,7 +43,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
             }
             );
             newStaticFieldThread.Start();
-            // The expected behiour is that the new thread returns null for the thread safe static field.
+            // The expected behaviour is that the new thread returns null for the thread safe static field.
             // The thread safe static field is only initialized in the main / first thread.
             Assert.IsNull(spawnedThreadValue);
         }

@@ -1,7 +1,7 @@
 ﻿namespace Kevins.HSoftware.Threading
 {
     
-    public static class ClazzProvidesThreadSafeMemberAccess
+    public static class ClazzProvidesThreadSafeMemberAccessUsingLock
     {
         private static int numberField = 1;
         private static object synchronizationObject = new object();
