@@ -11,7 +11,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
         public void ShouldHaveSafeMethodCallsInMultiThread()
         {
             var workerThreads = new List<Thread>();
-            var threadNumberFieldValue = 0;
+            var numberFieldValue = 0;
             var incrementFiveTimes = 5;
             int functionExecuteCount = 0;
 
@@ -30,7 +30,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
                         Thread.Sleep(10);
                     }
                     ClazzProvidesThreadSafeMemberAccess.IncrementNumberField();
-                    threadNumberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField();
+                    numberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField();
                 });
                 workerThreads.Add(workerThread);
             }
@@ -47,7 +47,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
             
 
             // Assert result
-            Assert.AreEqual(incrementFiveTimes, threadNumberFieldValue);
+            Assert.AreEqual(incrementFiveTimes, numberFieldValue);
         }
 
 
@@ -55,7 +55,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
         public void ShouldNotHaveSafeMethodCallsInMultiThread()
         {
             var workerThreads = new List<Thread>();
-            var threadNumberFieldValue = 0;
+            var numberFieldValue = 0;
             var incrementFiveTimes = 5;
             int functionExecuteCount = 0;
 
@@ -74,7 +74,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
                         Thread.Sleep(10);
                     }
                     ClazzProvidesThreadSafeMemberAccess.IncrementNumberField(false);
-                    threadNumberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField(false);
+                    numberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField(false);
                 });
                 workerThreads.Add(workerThread);
             }
@@ -86,7 +86,7 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
 
 
             // Assert result
-            Assert.AreNotEqual(incrementFiveTimes, threadNumberFieldValue);
+            Assert.AreNotEqual(incrementFiveTimes, numberFieldValue);
         }
     }
 }
