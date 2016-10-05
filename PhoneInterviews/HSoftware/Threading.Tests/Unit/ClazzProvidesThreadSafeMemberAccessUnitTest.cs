@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,21 +12,32 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
         {
             var workerThreads = new List<Thread>();
             var threadNumberFieldValue = 0;
-            var valueAfterIncrementingFiveTimes = 5;
+            var incrementFiveTimes = 5;
+            int functionExecuteCount = 0;
 
             // Start field value at 0
             ClazzProvidesThreadSafeMemberAccess.ModifyNumberField(0);
 
-            for (var i = 1; i <= 5; i++)
+            for (var i = 1; i <= incrementFiveTimes; i++)
             {
                 var workerThread = new Thread(() =>
                 {
-                    RandomWait();
+                    Interlocked.Increment(ref functionExecuteCount);
+                    // Wait for other threads to get inside the function
+                    while (functionExecuteCount < incrementFiveTimes)
+                    {
+                        Thread.Yield();
+                        Thread.Sleep(10);
+                    }
                     ClazzProvidesThreadSafeMemberAccess.IncrementNumberField();
                     threadNumberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField();
                 });
-                workerThread.Start();
                 workerThreads.Add(workerThread);
+            }
+
+            foreach (var workerThread in workerThreads)
+            {
+                workerThread.Start();
             }
 
             foreach (var workerThread in workerThreads)
@@ -35,8 +45,9 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
                 workerThread.Join();
             }
             
+
             // Assert result
-            Assert.AreEqual(valueAfterIncrementingFiveTimes, threadNumberFieldValue);
+            Assert.AreEqual(incrementFiveTimes, threadNumberFieldValue);
         }
 
 
@@ -45,38 +56,37 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
         {
             var workerThreads = new List<Thread>();
             var threadNumberFieldValue = 0;
-            var valueAfterIncrementingFiveTimes = 5;
+            var incrementFiveTimes = 5;
+            int functionExecuteCount = 0;
 
             // Start field value at 0
             ClazzProvidesThreadSafeMemberAccess.ModifyNumberField(0, false);
 
-            for (var i = 1; i <= 5; i++)
+            for (var i = 1; i <= incrementFiveTimes; i++)
             {
                 var workerThread = new Thread(() =>
                 {
-                    RandomWait();
+                    Interlocked.Increment(ref functionExecuteCount);
+                    // Wait for other threads to get inside the function
+                    while (functionExecuteCount < incrementFiveTimes)
+                    {
+                        Thread.Yield();
+                        Thread.Sleep(10);
+                    }
                     ClazzProvidesThreadSafeMemberAccess.IncrementNumberField(false);
                     threadNumberFieldValue = ClazzProvidesThreadSafeMemberAccess.GetNumberField(false);
                 });
-                workerThread.Start();
                 workerThreads.Add(workerThread);
             }
 
-
             foreach (var workerThread in workerThreads)
             {
-                workerThread.Join();
+                workerThread.Start();
             }
 
+
             // Assert result
-            Assert.AreNotEqual(valueAfterIncrementingFiveTimes, threadNumberFieldValue);
-        }
-
-
-        private void RandomWait()
-        {
-            var randomizer = new Random();
-            Thread.Sleep(randomizer.Next(50, 100));
+            Assert.AreNotEqual(incrementFiveTimes, threadNumberFieldValue);
         }
     }
 }

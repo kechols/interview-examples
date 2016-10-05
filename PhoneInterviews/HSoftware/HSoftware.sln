@@ -10,7 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{54F5F453-1138-4F0B-ADEF-1AD67768F814}"
 	ProjectSection(SolutionItems) = preProject
 		.runsettings = .runsettings
-		\\vmware-host\Shared Folders\Documents\latest_test_pass_fail_results.jpg = \\vmware-host\Shared Folders\Documents\latest_test_pass_fail_results.jpg
+		100_coverage_hsoftware_test_results.jpg = 100_coverage_hsoftware_test_results.jpg
 		..\DSolutions\Readme.txt = ..\DSolutions\Readme.txt
 	EndProjectSection
 EndProject

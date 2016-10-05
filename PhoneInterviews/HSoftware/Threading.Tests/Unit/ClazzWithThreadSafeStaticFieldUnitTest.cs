@@ -61,7 +61,4 @@ namespace Kevins.HSoftware.Threading.Tests.Unit
             return !IsNonSafeField(value);
         }
     }
-
-
-  
 }
