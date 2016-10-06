@@ -70,7 +70,7 @@
     <Content Include="addListEntries.html" />
     <Content Include="addListEntries_html_output_answer.jpg" />
     <Content Include="css\addListEntries.css" />
-    <Content Include="js\addListEntries.js" />
+    <Content Include="js\addListEntriesPagePlugin.js" />
     <Content Include="js\jquery-2.1.4.js" />
   </ItemGroup>
   <ItemGroup />
