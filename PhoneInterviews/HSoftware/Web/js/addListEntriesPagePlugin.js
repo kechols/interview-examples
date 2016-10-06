@@ -28,7 +28,7 @@ $(function () {
         // ----------------------------- Public functions ---------------------------------------
 
         this.bindEventHandlers = function () {
-            bindAddNewEntryEventHasndler();
+            bindDataEntryEventHandlers();
         };
 
 
@@ -41,14 +41,20 @@ $(function () {
                 var styleClasses = "entryItem " + (isEveryThird ? "redEntryItem" : "blackEntryItem");
                 $("#entryItems").append("<option class='" + styleClasses + "' value='" + newEntryValue + "'>" + newEntryValue + "</option>");
             } else {
-                alert("Entry must have none blank characters.");
+                alert("Entry must have non blank characters.");
             }
         };
 
 
-        var bindAddNewEntryEventHasndler = function () {
+        var bindDataEntryEventHandlers = function () {
             $("#addEntry").click(function () {
                 addNewEntry();
+            });
+
+            $("#newEntry").keyup(function(keyUpEvent) {
+                if (keyUpEvent.keyCode === 13) {
+                    addNewEntry();
+                }
             });
         };
     }
