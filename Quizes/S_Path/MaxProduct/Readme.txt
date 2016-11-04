@@ -1,0 +1,1 @@
+Kevin Echols- solution for Bren's product challenge question. The complete code unit test(s) are here if he is interested.
