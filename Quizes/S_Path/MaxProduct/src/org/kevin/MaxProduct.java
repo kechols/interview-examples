@@ -53,14 +53,8 @@ public final class  MaxProduct
     	
 		
 		public void setValues(int value1, int value2){
-			if(value1 == value2){
-				largerOrEqualOperand = value1;
-				smallerOrEqualOperand = value1;
-    		}
-    		else {
-    			largerOrEqualOperand = Math.max(value1, value2);
-    			smallerOrEqualOperand = Math.min(value1, value2);
-    		}
+			largerOrEqualOperand = Math.max(value1, value2);
+			smallerOrEqualOperand = Math.min(value1, value2);
 		}
 		
 		
