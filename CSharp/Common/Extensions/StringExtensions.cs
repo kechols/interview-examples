@@ -52,7 +52,7 @@ namespace Kevins.Examples.Common.Extensions
         /// <summary>
         /// Extends the string object to convert "yes" and "no" to true or false. 
         /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static bool ToBoolean(this string s)
         {
             var one = "1";
@@ -74,14 +74,14 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string ReplaceAll(this string stringToOperateOn, string toBeReplaced, string replacementString)
         {
             return Regex.Replace(stringToOperateOn, toBeReplaced, replacementString, RegexOptions.IgnoreCase);
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string ReplaceSuffix(this string stringToOperateOn, string toBeReplaced, string replace)
         {
             if (stringToOperateOn.EndsWith(toBeReplaced, true, CultureInfo.InvariantCulture))
@@ -93,7 +93,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string ReplaceTitle(this string stringToOperateOn, string toBeReplaced, string replace)
         {
             if (stringToOperateOn.StartsWith(toBeReplaced, true, CultureInfo.InvariantCulture))
@@ -104,7 +104,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string AsFirstAndLastName(this string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -116,7 +116,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string FirstName(this string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -128,7 +128,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string LastName(this string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -140,19 +140,19 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static int AsInt(this string value)
         {
             return Convert.ToInt32(value);
         }
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string AsYesNo(this bool b)
         {
             return b ? "Yes" : "No";
         }
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static bool AreValidEmails(this IEnumerable<string> emails)
         {
             foreach (var email in emails)
@@ -166,24 +166,19 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string CamelCaseAsWords(this string s)
         {
             return string.Join(" ", Regex.Split(s, "(?<!^)(?=[A-Z])"));
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string CommaDelimited(this IEnumerable<string> list)
         {
             return string.Join(", ", list);
         }
 
-
-        public static string GetValue(this Dictionary<string, object> dictionary, string key)
-        {
-            return dictionary.First(d => d.Key.Equals(key)).Value.ToString();
-        }
 
 
         public static MatchCollection FindTag(this string htmlString, string tag)
@@ -194,7 +189,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static bool IsValidEmail(this string emailString)
         {
             return emailString != null && Regex.IsMatch(emailString, @"^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$", RegexOptions.IgnoreCase);
@@ -213,7 +208,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string NameFromVerboseUserName(this string verboseUserName)
         {
             var userName = Titles.Aggregate(verboseUserName, (current, title) => current.ReplaceTitle(title, string.Empty)).Trim();
@@ -243,7 +238,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string RemoveStyle(this string stringWithStyles, string style)
         {
             var styleRegExpression = new Regex(@"(?i)" + style + @"\s*:[^;]*;");
@@ -251,13 +246,13 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string WithoutCarriageReturns(this string s)
         {
             return s.WithoutCarriageReturns(null);
         }
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string WithoutCarriageReturns(this string s, string replacementDelimiter)
         {
             replacementDelimiter = replacementDelimiter ?? " ";

@@ -14,7 +14,7 @@ namespace Kevins.Examples.Common.Extensions
         public static readonly string FullMonthDayYearFormat = "MMMM d yyyy";
         public static readonly string TimeFormat = "HH:mm";
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static int YearsAfterReferenceDate(this DateTime date, DateTime referenceDate)
         {
             var age = date.Year - referenceDate.Year;
@@ -27,14 +27,14 @@ namespace Kevins.Examples.Common.Extensions
 
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string NullableDateToString(this DateTime? date)
         {
             return date.NullableDateToString(MonthDayYearFormat);
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static DateTime? DateFromTime(this DateTime? date, string time)
         {
             if (date == null || string.IsNullOrEmpty(time))
@@ -48,7 +48,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string NullableDateToString(this DateTime? date, string format)
         {
             if (date == null)
@@ -59,7 +59,7 @@ namespace Kevins.Examples.Common.Extensions
         }
 
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
+        
         public static string ConvertTimeToAmPm(this string time)
         {
             var regex = new Regex(@"\d{1,2}");
