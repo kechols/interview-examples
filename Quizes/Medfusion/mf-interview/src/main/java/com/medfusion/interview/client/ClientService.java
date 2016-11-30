@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -47,7 +48,7 @@ public class ClientService {
 		searchParams = new HashMap<String, String>();
 		searchParams.put(DOCUMENT_TYPE, "CCD");
 
-		DocumentReference[] results = providerService.search(searchParams).toArray(new DocumentReference[0]);
+		DocumentReference[] results = getProviderService().search(searchParams).toArray(new DocumentReference[0]);
 
 		Enumeration<DocumentReference> docRefEnum = new Vector(providerService.search(searchParams)).elements();
 
@@ -81,14 +82,16 @@ public class ClientService {
 		System.out.print("here...");
 		String documentId = null;
 		boolean found = false;
-		if (results[i].getType() == "CCD") {
-			LoggerFactory.getLogger(this.getClass().getName()).info("Document type is CCD.", results[0]);
-			documentId = results[0].getId();
+		if ((results.length > i) && 
+			(results[i].getType() == "CCD")
+			) {
+			LoggerFactory.getLogger(this.getClass().getName()).info("Document type is CCD.", results[i]);
+			documentId = results[i].getId();
 			found = true;
 		}
 
 		System.out.print("here...");
-		if (found = true) {
+		if (found) {
 			LoggerFactory.getLogger(this.getClass().getName()).debug("Found the document {}", documentId);
 			return documentId;
 		} else {
@@ -96,6 +99,7 @@ public class ClientService {
 			return null;
 		}
 	}
+	
 
 	/**
 	 * <p>
@@ -120,15 +124,28 @@ public class ClientService {
 		}
 
 		return count;
-
 	}
+	
 
 	public ProviderService getProviderService() {
+		if(this.providerService == null){
+			loadDoNothingProviderService();
+		}
 		return this.providerService;
 	}
+	
 
 	public void setProviderService(ProviderService providerService) {
 		this.providerService = providerService;
 	}
-
+	
+	
+	private void loadDoNothingProviderService () {
+        this.providerService = new ProviderService() {
+			@Override
+			public List<DocumentReference> search(Map<String, String> searchParams) {
+				return new ArrayList<DocumentReference>();
+			}
+		};
+    }
 }
