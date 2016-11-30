@@ -3,7 +3,6 @@ package com.medfusion.interview.client;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +15,8 @@ import com.medfusion.interview.service.ProviderService;
 
 public class ClientService {
 
-	private static String DOCUMENT_TYPE;
-	private static String DOCUMENT_PERIOD_BEFORE;
-	private static String DOCUMENT_PERIOD_AFTER;
+	static final String DOCUMENT_TYPE = "type";
+
 	
 	public final static SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm");
 
@@ -27,9 +25,6 @@ public class ClientService {
 	private HashMap<String, String> searchParams;
 
 	public ClientService() {
-		DOCUMENT_TYPE = "type";
-		DOCUMENT_PERIOD_BEFORE = "periodBefore";
-		DOCUMENT_PERIOD_AFTER = "periodAfter";
 	}
 
 	/**
@@ -48,7 +43,6 @@ public class ClientService {
 
 		List<DocumentReference> results = getProviderService().search(searchParams);
 
-		System.out.print("here...");
 		Date currentDocumentReferenceDateTime = null;
 		DocumentReference result = null;
 		for (DocumentReference documentReference : results) {
@@ -62,8 +56,6 @@ public class ClientService {
 				result = documentReference;
 			}
 		}
-
-		System.out.print("here...");
 		
 		if (result != null){
 			LoggerFactory.getLogger(this.getClass().getName()).info(String.format("Document type is %1$s.", searchParams.get(DOCUMENT_TYPE)), result);
@@ -86,16 +78,15 @@ public class ClientService {
 	 * @return
 	 */
 	public long getCcdDocumentCount() {
-
 		searchParams = new HashMap<String, String>();
 		searchParams.put(DOCUMENT_TYPE, "CCD");
 
-		Enumeration<DocumentReference> docRefEnum = new Vector(providerService.search(searchParams)).elements();
+		List<DocumentReference> results = getProviderService().search(searchParams);
 
 		int count = 0;
-		while (docRefEnum.hasMoreElements()) {
-			DocumentReference d = docRefEnum.nextElement();
-			if (d.getType() == "CCD" && d != null) {
+		
+		for (DocumentReference documentReference : results) {
+			if (documentReference.getType().equals(searchParams.get(DOCUMENT_TYPE))){
 				count++;
 			}
 		}

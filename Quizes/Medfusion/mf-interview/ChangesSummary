@@ -1,0 +1,17 @@
+Summary of the changes that I, Kevin Echols, made for this interview exercise in terms of what I did for each github commit (https://github.com/kechols/interview-examples/tree/master/Quizes/Medfusion/mf-interview).
+
+Interview Exercise Commits:
+1. Checked in code from the zip file into GitHub so that I could track my changes.
+2. Started doing entirely mechanical testing by just writing test that asserted what was described in the javadoc statements. All changes were entirely mechanical, hard to screw up, and, together, default to doing nothing. 
+    * Added 2 basic test to test ClientService.getCurrentCcdDocumentId as is before refactoring.
+
+1) Test javadoc statement : The id is null if there are no documents provided by the service
+
+2) Test javadoc statement : throws Exception when there is a problem when calling the method
+3. Added test to assert that the date logic is tested in getCurrentCcdDocumentId
+
+    * Afterwards I refactored the while loop in ClientService to a for loop to get rid of the index (i) logic in getCurrentCcdDocumentId
+    * made sure to maintain the same logging and  return conditions in getCurrentCcdDocumentId
+4. Applied previous 3 steps that I did for getCurrentCcdDo
+
+
