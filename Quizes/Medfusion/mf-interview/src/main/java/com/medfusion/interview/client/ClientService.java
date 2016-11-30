@@ -1,10 +1,7 @@
 package com.medfusion.interview.client;
 
-import java.text.DateFormat;
-import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -12,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.medfusion.interview.data.DocumentReference;
@@ -23,6 +19,8 @@ public class ClientService {
 	private static String DOCUMENT_TYPE;
 	private static String DOCUMENT_PERIOD_BEFORE;
 	private static String DOCUMENT_PERIOD_AFTER;
+	
+	public final static SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm");
 
 	public ProviderService providerService;
 
@@ -48,53 +46,32 @@ public class ClientService {
 		searchParams = new HashMap<String, String>();
 		searchParams.put(DOCUMENT_TYPE, "CCD");
 
-		DocumentReference[] results = getProviderService().search(searchParams).toArray(new DocumentReference[0]);
-
-		Enumeration<DocumentReference> docRefEnum = new Vector(providerService.search(searchParams)).elements();
+		List<DocumentReference> results = getProviderService().search(searchParams);
 
 		System.out.print("here...");
-		int i = 0;
-		Date current = null;
-		while (docRefEnum.hasMoreElements()) {
-			DocumentReference d = docRefEnum.nextElement();
+		Date currentDocumentReferenceDateTime = null;
+		DocumentReference result = null;
+		for (DocumentReference documentReference : results) {
+			final Date documentReferenceDateTime = dateFormatter.parse(documentReference.getCreated());
 
-			try {
-				final Date dd = DateFormat.getInstance().parse(d.getCreated());
-
-				if (current == null) {
-					current = dd;
-				}
-
-				if (dd.getTime() > current.getTime()) {
-					current = dd;
-					i++;
-				} else if (dd.getTime() == current.getTime()) {
-					current = dd;
-					i++;
-				} else if (dd.getTime() < current.getTime()) {
-					i++;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
+			if ((currentDocumentReferenceDateTime == null || 
+				documentReferenceDateTime.getTime() >= currentDocumentReferenceDateTime.getTime()) && 
+				documentReference.getType().equals(searchParams.get(DOCUMENT_TYPE))	
+				) {
+				currentDocumentReferenceDateTime = documentReferenceDateTime;
+				result = documentReference;
 			}
 		}
 
 		System.out.print("here...");
-		String documentId = null;
-		boolean found = false;
-		if ((results.length > i) && 
-			(results[i].getType() == "CCD")
-			) {
-			LoggerFactory.getLogger(this.getClass().getName()).info("Document type is CCD.", results[i]);
-			documentId = results[i].getId();
-			found = true;
-		}
-
-		System.out.print("here...");
-		if (found) {
+		
+		if (result != null){
+			LoggerFactory.getLogger(this.getClass().getName()).info(String.format("Document type is %1$s.", searchParams.get(DOCUMENT_TYPE)), result);
+			String documentId = result.getId();
 			LoggerFactory.getLogger(this.getClass().getName()).debug("Found the document {}", documentId);
 			return documentId;
-		} else {
+		}
+		else {
 			LoggerFactory.getLogger(this.getClass().getName()).debug("The document was not found.");
 			return null;
 		}
