@@ -1,6 +1,5 @@
 package com.medfusion.interview.client;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,6 +13,15 @@ public class ClientServiceTestFixture {
 	public static Date dateTimeNow () {
 		return new Date();
 	}
+	
+	public static Date dateTimeHoursBack (int hoursBack) {
+		Date earlyDate = dateTimeNow();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(earlyDate);
+		calendar.add(Calendar.HOUR,  -hoursBack);
+		return calendar.getTime();
+	}
+	
 	
 	public static ClientServiceTestFixture Instance(){
 		return new ClientServiceTestFixture();

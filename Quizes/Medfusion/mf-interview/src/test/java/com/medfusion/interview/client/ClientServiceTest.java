@@ -50,6 +50,46 @@ public class ClientServiceTest {
 	
 	
 	@Test
+    public void shouldReturnLatestId_GettingCurrentCcdDocumentId_For_ValidDocuments() {
+		ClientService clientService = new ClientService();
+		
+		final String expectedId = "latest";
+		
+		clientService.setProviderService(new ProviderService() {
+			@Override
+			public List<DocumentReference> search(Map<String, String> searchParams) {
+				ClientServiceTestFixture testFixture = ClientServiceTestFixture.Instance();
+				return Arrays.asList(
+					testFixture.createDocument(
+						"early1", 
+						searchParams.get(ClientService.DOCUMENT_TYPE), 
+						ClientService.dateFormatter.format(ClientServiceTestFixture.dateTimeHoursBack(1))
+					),
+					testFixture.createDocument(
+						expectedId, 
+						searchParams.get(ClientService.DOCUMENT_TYPE), 
+						ClientService.dateFormatter.format(ClientServiceTestFixture.dateTimeNow())
+					),
+					testFixture.createDocument(
+						"early2", 
+						searchParams.get(ClientService.DOCUMENT_TYPE), 
+						ClientService.dateFormatter.format(ClientServiceTestFixture.dateTimeHoursBack(2))
+					)
+				);
+			}
+		});
+		
+		try {
+			String actualId = clientService.getCurrentCcdDocumentId();
+			assertEquals(expectedId, actualId);
+		}
+		catch(Exception ex){
+			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
+		}
+    }
+	
+	
+	@Test
     public void shouldReturnNull_GettingCurrentCcdDocumentId_After_Constructing() {
 		ClientService clientService = new ClientService();
 		
