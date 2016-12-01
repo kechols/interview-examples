@@ -169,7 +169,7 @@ public class ClientServiceTest {
 	
 	
 	@Test
-    public void shouldReturnCorrectCount_GetttingCcdDocumentCount() {
+    public void shouldReturnCorrectCount_GettingCcdDocumentCount() {
 		clientService.setProviderService(new ProviderService() {
 			@Override
 			public List<DocumentReference> search(Map<String, String> searchParams) {
@@ -204,7 +204,7 @@ public class ClientServiceTest {
 	
 	
 	@Test
-    public void shouldReturnZero_GetttingCcdDocumentCount_After_Constructing() {
+    public void shouldReturnZero_GettingCcdDocumentCount_After_Constructing() {
 		try {
 			Long actualCount = clientService.getCcdDocumentCount();
 			assertEquals(new Long(0), actualCount);
@@ -216,7 +216,7 @@ public class ClientServiceTest {
 	
 	
 	@Test
-    public void shouldReturnZero_GetttingCcdDocumentCount_For_InValidDocumentType() {
+    public void shouldReturnZero_GettingCcdDocumentCount_For_InValidDocumentType() {
 		final String expectedId = null;
 		
 		clientService.setProviderService(new ProviderService() {
