@@ -15,9 +15,8 @@ public class ClientServiceTestFixture {
 	}
 	
 	public static Date dateTimeHoursBack (int hoursBack) {
-		Date earlyDate = dateTimeNow();
 		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(earlyDate);
+		calendar.setTime(dateTimeNow());
 		calendar.add(Calendar.HOUR,  -hoursBack);
 		return calendar.getTime();
 	}

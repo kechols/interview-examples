@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.medfusion.interview.data.DocumentReference;
@@ -20,10 +21,15 @@ public class ClientServiceTest {
 	private static final String INVALID_DOCUMENT_TYPE = "Blah";
 	private static final String UNEXPECTED_EXCEPTION_OCCURRED = "An unexpected exception occurred : %1$s";
 	
+	private ClientService clientService = null;
+	
+	@Before
+    public void setUp() throws Exception {
+		clientService = new ClientService();
+    }
+	
 	@Test
     public void shouldReturnId_GettingCurrentCcdDocumentId_For_ValidDocument() {
-		ClientService clientService = new ClientService();
-		
 		final String expectedId = "kte";
 		
 		clientService.setProviderService(new ProviderService() {
@@ -40,8 +46,7 @@ public class ClientServiceTest {
 		});
 		
 		try {
-			String actualId = clientService.getCurrentCcdDocumentId();
-			assertEquals(expectedId, actualId);
+			assertEquals(expectedId, clientService.getCurrentCcdDocumentId());
 		}
 		catch(Exception ex){
 			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
@@ -51,8 +56,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldReturnLatestId_GettingCurrentCcdDocumentId_For_ValidDocuments() {
-		ClientService clientService = new ClientService();
-		
 		final String expectedId = "latest";
 		
 		clientService.setProviderService(new ProviderService() {
@@ -80,8 +83,7 @@ public class ClientServiceTest {
 		});
 		
 		try {
-			String actualId = clientService.getCurrentCcdDocumentId();
-			assertEquals(expectedId, actualId);
+			assertEquals(expectedId, clientService.getCurrentCcdDocumentId());
 		}
 		catch(Exception ex){
 			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
@@ -91,11 +93,8 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldReturnNull_GettingCurrentCcdDocumentId_After_Constructing() {
-		ClientService clientService = new ClientService();
-		
 		try {
-			String actualId = clientService.getCurrentCcdDocumentId();
-			assertEquals(null, actualId);
+			assertEquals(null, clientService.getCurrentCcdDocumentId());
 		}
 		catch(Exception ex){
 			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
@@ -105,8 +104,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldReturnNull_GettingCurrentCcdDocumentId_For_InValidDocumentType() {
-		ClientService clientService = new ClientService();
-		
 		final String expectedId = null;
 		
 		clientService.setProviderService(new ProviderService() {
@@ -123,8 +120,7 @@ public class ClientServiceTest {
 		});
 		
 		try {
-			String actualId = clientService.getCurrentCcdDocumentId();
-			assertEquals(expectedId, actualId);
+			assertEquals(expectedId, clientService.getCurrentCcdDocumentId());
 		}
 		catch(Exception ex){
 			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
@@ -134,8 +130,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldThrowException_GettingCurrentCcdDocumentId_For_InvalidCreatedDate() {
-		ClientService clientService = new ClientService();
-		
 		clientService.setProviderService(new ProviderService() {
 			@Override
 			public List<DocumentReference> search(Map<String, String> searchParams) {
@@ -157,7 +151,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldThrowException_GettingCurrentCcdDocumentId_When_ThereIsProblem() {
-		ClientService clientService = new ClientService();
 		clientService.setProviderService(new ProviderService() {
 			@Override
 			public List<DocumentReference> search(Map<String, String> searchParams) {
@@ -177,8 +170,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldReturnCorrectCount_GetttingCcdDocumentCount() {
-		ClientService clientService = new ClientService();
-		
 		clientService.setProviderService(new ProviderService() {
 			@Override
 			public List<DocumentReference> search(Map<String, String> searchParams) {
@@ -204,8 +195,7 @@ public class ClientServiceTest {
 		});
 		
 		try {
-			Long actualCount = clientService.getCcdDocumentCount();
-			assertEquals(new Long(2), actualCount);
+			assertEquals(2, clientService.getCcdDocumentCount());
 		}
 		catch(Exception ex){
 			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
@@ -215,8 +205,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldReturnZero_GetttingCcdDocumentCount_After_Constructing() {
-		ClientService clientService = new ClientService();
-		
 		try {
 			Long actualCount = clientService.getCcdDocumentCount();
 			assertEquals(new Long(0), actualCount);
@@ -229,8 +217,6 @@ public class ClientServiceTest {
 	
 	@Test
     public void shouldReturnZero_GetttingCcdDocumentCount_For_InValidDocumentType() {
-		ClientService clientService = new ClientService();
-		
 		final String expectedId = null;
 		
 		clientService.setProviderService(new ProviderService() {
@@ -247,8 +233,7 @@ public class ClientServiceTest {
 		});
 		
 		try {
-			Long actualCount = clientService.getCcdDocumentCount();
-			assertEquals(new Long(0), actualCount);
+			assertEquals(0, clientService.getCcdDocumentCount());
 		}
 		catch(Exception ex){
 			Assert.fail(String.format(UNEXPECTED_EXCEPTION_OCCURRED, ex.getMessage()));
