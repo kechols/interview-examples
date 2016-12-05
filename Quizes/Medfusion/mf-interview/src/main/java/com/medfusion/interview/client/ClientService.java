@@ -1,12 +1,13 @@
 package com.medfusion.interview.client;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +17,6 @@ import com.medfusion.interview.service.ProviderService;
 public class ClientService {
 
 	static final String DOCUMENT_TYPE = "type";
-
 	
 	public final static SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm");
 
@@ -37,36 +37,25 @@ public class ClientService {
 	 *             When there is a problem.
 	 */
 	public String getCurrentCcdDocumentId() throws Exception {
-
-		searchParams = new HashMap<String, String>();
-		searchParams.put(DOCUMENT_TYPE, "CCD");
-
-		List<DocumentReference> results = getProviderService().search(searchParams);
-
-		Date currentDocumentReferenceDateTime = null;
-		DocumentReference result = null;
-		for (DocumentReference documentReference : results) {
-			final Date documentReferenceDateTime = dateFormatter.parse(documentReference.getCreated());
-
-			if ((currentDocumentReferenceDateTime == null || 
-				documentReferenceDateTime.getTime() >= currentDocumentReferenceDateTime.getTime()) && 
-				documentReference.getType().equals(searchParams.get(DOCUMENT_TYPE))	
-				) {
-				currentDocumentReferenceDateTime = documentReferenceDateTime;
-				result = documentReference;
-			}
-		}
+		List<DocumentReference> results = getOnlyCcdDocuments();
 		
-		if (result != null){
-			LoggerFactory.getLogger(this.getClass().getName()).info(String.format("Document type is %1$s.", searchParams.get(DOCUMENT_TYPE)), result);
-			String documentId = result.getId();
-			LoggerFactory.getLogger(this.getClass().getName()).debug("Found the document {}", documentId);
-			return documentId;
-		}
-		else {
+		if(results.isEmpty()) {
 			LoggerFactory.getLogger(this.getClass().getName()).debug("The document was not found.");
 			return null;
 		}
+		
+		Collections.sort(results, new Comparator<DocumentReference>(){
+		   @Override
+		   public int compare(final DocumentReference leftHandSideDocument, DocumentReference rightHandSideDocument){
+		     return compareDocumentReferecesByDate(rightHandSideDocument, leftHandSideDocument);
+		     }
+		 });
+
+		LoggerFactory.getLogger(this.getClass().getName()).info(String.format("Document type is %1$s.", searchParams.get(DOCUMENT_TYPE)), results.get(0));
+		String documentId = results.get(0).getId();
+		LoggerFactory.getLogger(this.getClass().getName()).debug("Found the document {}", documentId);
+		return documentId;
+		
 	}
 	
 
@@ -78,20 +67,7 @@ public class ClientService {
 	 * @return
 	 */
 	public long getCcdDocumentCount() {
-		searchParams = new HashMap<String, String>();
-		searchParams.put(DOCUMENT_TYPE, "CCD");
-
-		List<DocumentReference> results = getProviderService().search(searchParams);
-
-		int count = 0;
-		
-		for (DocumentReference documentReference : results) {
-			if (documentReference.getType().equals(searchParams.get(DOCUMENT_TYPE))){
-				count++;
-			}
-		}
-
-		return count;
+		return getOnlyCcdDocuments().size();
 	}
 	
 
@@ -108,11 +84,48 @@ public class ClientService {
 	}
 	
 	
+	private int compareDocumentReferecesByDate (DocumentReference rightHandSideDocument, DocumentReference leftHandSideDocument) {
+		long rightHandSideDocumentDateTime = 0;
+		long  leftHandSideDocumentDateTime = 0;
+		
+		try {
+			rightHandSideDocumentDateTime = dateFormatter.parse(rightHandSideDocument.getCreated()).getTime();
+			leftHandSideDocumentDateTime = dateFormatter.parse(leftHandSideDocument.getCreated()).getTime();
+		} catch (ParseException e) {
+			throw new RuntimeException (e);
+		}
+		
+		return rightHandSideDocumentDateTime < leftHandSideDocumentDateTime ? -1 : rightHandSideDocumentDateTime == leftHandSideDocumentDateTime ? 0 : 1;
+    }
+	
+	
+	private List<DocumentReference> getEmptyDocumentReferencList () {
+		return new ArrayList<DocumentReference>();
+    }
+	
+	
+	private List<DocumentReference> getOnlyCcdDocuments () {
+		searchParams = new HashMap<String, String>();
+		searchParams.put(DOCUMENT_TYPE, "CCD");
+
+		List<DocumentReference> providerService = getProviderService().search(searchParams);
+		List<DocumentReference> results = getEmptyDocumentReferencList();
+		
+		for (DocumentReference documentReference : providerService) {
+			if (documentReference.getType().equals(searchParams.get(DOCUMENT_TYPE))){
+				results.add(documentReference);
+			}
+		}
+		
+		return results;
+    }
+	
+	
 	private void loadDoNothingProviderService () {
         this.providerService = new ProviderService() {
 			@Override
 			public List<DocumentReference> search(Map<String, String> searchParams) {
-				return new ArrayList<DocumentReference>();
+				return getEmptyDocumentReferencList();
 			}
 		};
     }

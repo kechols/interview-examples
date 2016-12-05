@@ -133,8 +133,10 @@ public class ClientServiceTest {
 		clientService.setProviderService(new ProviderService() {
 			@Override
 			public List<DocumentReference> search(Map<String, String> searchParams) {
+				ClientServiceTestFixture testFixture = ClientServiceTestFixture.Instance();
 				return Arrays.asList(
-					ClientServiceTestFixture.Instance().createDocument("kte", "kevins", "InvalidCreatedDate")
+						testFixture.createDocument("kte1", searchParams.get(ClientService.DOCUMENT_TYPE), "InvalidCreatedDate"),
+						testFixture.createDocument("kte2", searchParams.get(ClientService.DOCUMENT_TYPE), "InvalidCreatedDate")
 				);
 			}
 		});
@@ -144,7 +146,7 @@ public class ClientServiceTest {
 			Assert.fail(EXPECTED_EXCEPTION);
 		}
 		catch(Exception actual){
-			assertEquals(ParseException.class, actual.getClass());
+			assertEquals(ParseException.class, actual.getCause().getClass());
 		}
     }
 	
