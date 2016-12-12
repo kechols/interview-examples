@@ -24,8 +24,8 @@ public class RandomPoemFactoryTest {
 
     
     @Test
-    public void shouldParseFileFileAndGeneratePoem() {
+    public void shouldParseFileAndGeneratePoem() {
         RandomPoemGenerator poemGenerator = randomPoemGenerator.withFile("/resources/appiaTestRules.txt");
-        System.err.println(poemGenerator.generateRandomPoem());
+        System.out.println(poemGenerator.generateRandomPoem());
     }
 }

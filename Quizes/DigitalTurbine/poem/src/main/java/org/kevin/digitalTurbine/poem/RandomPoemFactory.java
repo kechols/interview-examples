@@ -128,7 +128,7 @@ public class RandomPoemFactory {
         }
 
         private GeneratorRules getGeneratorRules(String filename) {
-            InputStream stream = RandomPoemFactory.class.getResourceAsStream(filename);
+            InputStream stream = this.getClass().getResourceAsStream(filename);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream));
             GeneratorRules generatorRules = RandomPoemFactory.getGeneratorRules();
             String ruleString;

@@ -8,6 +8,6 @@ public class GeneratePoem {
         if (args.length != 0)
             fileName = args[0];
         RandomPoemGenerator randomPoemGenerator = RandomPoemFactory.getRandomPoemGenerator();
-        System.err.println(randomPoemGenerator.withFile(fileName).generateRandomPoem());
+        System.out.println(randomPoemGenerator.withFile(fileName).generateRandomPoem());
     }
 }
